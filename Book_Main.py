@@ -15,14 +15,15 @@ def MainMenu():
     print "Exit (0)"
     print "Add new entry (1)"
     print "Add new entry by series (2)"
-    print "List series by author (3)"
-    print "List unread books by author (4)"
-    print "List books read by author (5)"
-    print "List all unread books (6)"
-    print "List unread books by genre (7)"
-    print "List author names (8)"
-    print "Count number of books read (9)"
-    print "List current genres (10)\n"
+    print "Add new entry by series of existing author (3)"
+    print "List series by author (4)"
+    print "List unread books by author (5)"
+    print "List books read by author (6)"
+    print "List all unread books (7)"
+    print "List unread books by genre (8)"
+    print "List author names (9)"
+    print "Count number of books read (10)"
+    print "List current genres (11)\n"
     UserSelection = raw_input("Selection: ")
     return UserSelection
 
@@ -47,26 +48,28 @@ while 1:
     elif UserSelection == 2:
         New_Record.Add_New_Books_By_Series()
     elif UserSelection == 3:
+        New_Record.Add_New_Books_By_Series_Existing_Author()
+    elif UserSelection == 4:
         Search_Records.Search_Author_Series()
         Junk = raw_input("Press Enter key to continue")
-    elif UserSelection == 4:
+    elif UserSelection == 5:
         Search_Records.Search_Author_Series_Unread()
         Junk = raw_input("Press Enter key to continue")
-    elif UserSelection == 5:
+    elif UserSelection == 6:
         Search_Records.Search_Author_Series_Read()
         Junk = raw_input("Press Enter key to continue")
-    elif UserSelection == 6:
+    elif UserSelection == 7:
         Search_Records.Search_All_Unread()
         Junk = raw_input("Press Enter key to continue")
-    elif UserSelection == 7:
+    elif UserSelection == 8:
         Search_Records.Search_Genre_Unread()
         Junk = raw_input("Press Enter key to continue")
-    elif UserSelection == 8:
+    elif UserSelection == 9:
         Search_Records.Search_List_Authors()
         Junk = raw_input("Press Enter key to continue")
-    elif UserSelection == 9:
+    elif UserSelection == 10:
         Search_Records.Search_Count_Read()
         Junk = raw_input("Press Enter key to continue")
-    elif UserSelection == 10:
+    elif UserSelection == 11:
         Search_Records.Search_Get_Genres()
         Junk = raw_input("Press Enter key to continue")

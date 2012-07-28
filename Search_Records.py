@@ -29,6 +29,18 @@ def Search_Author_Series():
     print "\n\n"
 
 
+####################################################################
+def Search_Author_Series_Return(SearchString):
+    SeriesList = [];
+    for FileName in glob.glob("*"):
+        if FileName == SearchString:
+            os.chdir(FileName)
+            for SeriesName in glob.glob("*.txt"):
+                ForPrint = SeriesName.split(".")
+                SeriesList.append(ForPrint[0])
+            os.chdir("..")
+    return SeriesList
+
 
 ####################################################################
 def Search_Author_Series_Unread():
