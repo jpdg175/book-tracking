@@ -366,13 +366,22 @@ def Add_New_Books_By_Series_Existing_Author():
 
     ### Yep, now check if this entry exists
     FileName = SeriesList[int(UserEntry)-1]+".txt"
+
+    if FileName == "Misc.txt":
+        NewEntry.Genre = raw_input("Genre: ")
+        if NewEntry.Genre == "+++":
+            fid.close()
+            os.chdir("..")
+            return
+
     fid = open(FileName,'r')
     UserInput = "z"
     LineCount = 0
     for line in fid:
         LineCount = LineCount + 1
         Existing = line.split(',')
-        NewEntry.Genre = Existing[1]
+        if not NewEntry.Genre:
+            NewEntry.Genre = Existing[1]
         if Existing[0] == NewEntry.Title and Existing[1] == NewEntry.Genre:
             print "WARNING: An entry exists under this author, series, and title:"
             print line
