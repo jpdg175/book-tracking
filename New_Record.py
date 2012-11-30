@@ -7,7 +7,7 @@ import Search_Records
 def Add_New_Book():
     print "\n\n\n\n\n\n\n"
     print "Adding New Book"
-    print "Enter date in \"YYYYMMDD\" format. Use \"00000000\" if not read yet, and \"99999999\" if unknown date."
+    print "Enter date in \"YYYYMMDD\" format. Use \"0\" if not read yet, and \"9\" if unknown date."
     print "Enter \"+++\" to exit without saving anytime.\n\n"
     NewEntry = Book()
     NewEntry.Title = raw_input("Book Title: ")
@@ -26,6 +26,10 @@ def Add_New_Book():
     if NewEntry.Date == "+++":
         return
     if not NewEntry.Date:
+        NewEntry.Date = "99999999"
+    if NewEntry.Date == "0":
+        NewEntry.Date = "00000000"
+    if NewEntry.Date == "9":
         NewEntry.Date = "99999999"
     NewEntry.Genre = raw_input("Genre: ")
     if NewEntry.Genre == "+++":
@@ -139,7 +143,7 @@ def Add_New_Book():
 def Add_New_Books_By_Series():
     print "\n\n\n\n\n\n\n"
     print "Adding New Books"
-    print "Enter date in \"YYYYMMDD\" format. Use \"00000000\" if not read yet, and \"99999999\" if unknown date."
+    print "Enter date in \"YYYYMMDD\" format. Use \"0\" if not read yet, and \"9\" if unknown date."
     print "Enter \"+++\" to exit without saving anytime.\n\n"
     NewEntry = Book()
     NewEntry.Author_First = raw_input("Author First Name: ")
@@ -188,6 +192,10 @@ def Add_New_Books_By_Series():
                 return
             if not NewEntry.Date:
                 NewEntry.Date = "99999999"
+            if NewEntry.Date == "0":
+                NewEntry.Date = "00000000"
+            if NewEntry.Date == "9":
+                NewEntry.Date = "99999999"
             fid.write(NewEntry.Title + "," + NewEntry.Genre + "," + NewEntry.Author_Last + ","\
                 + NewEntry.Author_First + "," + NewEntry.Date + "\n")
             Choice = raw_input("\nAdd Another Book (y/n): ")
@@ -217,6 +225,10 @@ def Add_New_Books_By_Series():
                     os.chdir("..")
                     return
                 if not NewEntry.Date:
+                    NewEntry.Date = "99999999"
+                if NewEntry.Date == "0":
+                    NewEntry.Date = "00000000"
+                if NewEntry.Date == "9":
                     NewEntry.Date = "99999999"
 
                 ### Yep, now check if this entry exists
@@ -286,6 +298,10 @@ def Add_New_Books_By_Series():
             return
         if not NewEntry.Date:
             NewEntry.Date = "99999999"
+        if NewEntry.Date == "0":
+            NewEntry.Date = "00000000"
+        if NewEntry.Date == "9":
+            NewEntry.Date = "99999999"
         fid.write(NewEntry.Title + "," + NewEntry.Genre + "," + NewEntry.Author_Last + ","\
             + NewEntry.Author_First + "," + NewEntry.Date + "\n")
         Choice = raw_input("\nAdd Another Book (y/n): ")
@@ -300,7 +316,7 @@ def Add_New_Books_By_Series():
 def Add_New_Books_By_Series_Existing_Author():
     print "\n\n\n\n\n\n\n"
     print "Adding New Books to Existing Series"
-    print "Enter date in \"YYYYMMDD\" format. Use \"00000000\" if not read yet, and \"99999999\" if unknown date."
+    print "Enter date in \"YYYYMMDD\" format. Use \"0\" if not read yet, and \"9\" if unknown date."
     print "Enter \"+++\" to exit without saving anytime.\n\n"
     NewEntry = Book()
     NewEntry.Author_First = raw_input("Author First Name: ")
@@ -360,6 +376,10 @@ def Add_New_Books_By_Series_Existing_Author():
         os.chdir("..")
         return
     if not NewEntry.Date:
+        NewEntry.Date = "99999999"
+    if NewEntry.Date == "0":
+        NewEntry.Date = "00000000"
+    if NewEntry.Date == "9":
         NewEntry.Date = "99999999"
 
     os.chdir(SearchString)
